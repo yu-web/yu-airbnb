@@ -3,7 +3,7 @@
       	<div class="card">
 		    <h5 class="card-header text-center">Edit Profile</h5>
     	  	<div class="card-body">
-          		<%= link_to "View My Profile", user_facebook_omniauth_authorize_path,class: "btn btn-secondary btn-block" %>
+          		<%= link_to "View My Profile", user_path(current_user),class: "btn btn-secondary btn-block" %>
     	  	</div>
   	  	</div>
     </div>

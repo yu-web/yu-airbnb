@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-3">
+		<div class="card" style="width: 18rem;">
+			<%= image_tag avatar_url(@user),class:"card-img-top" %>
+			
+			<div class="card-header text-center">
+				<h6>Verification</h6>
+			</div>
+			<div class="card-body">
+				<p>Phonenubmer:</p>
+				<%= @user.phonenumber %>
+				<p>Email:</p>
+				<%= @user.email %>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-9">
+		<h2 class="show_name"><%= @user.fullname %></h2>
+
+	</div>
+</div>
