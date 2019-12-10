@@ -8,7 +8,8 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
 			
-			
+			<%= link_to "Become a host",new_room_path,class: "btn btn-outline-success btn-block mr-3" %>
+
 			<% if user_signed_in? %>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
