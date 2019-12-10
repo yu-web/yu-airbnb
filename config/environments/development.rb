@@ -59,7 +59,11 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
+  Paperclip.options[:command_path] = "C:\Program Files\ImageMagick-7.0.9-Q16"
+  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
+  Paperclip.options[:log] = true
+  Paperclip.options[:log_command] = true
+  
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.mailgun.org',

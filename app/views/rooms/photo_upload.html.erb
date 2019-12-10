@@ -13,6 +13,21 @@
         Photos
       </div>
       <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="offset-3 col-6">
+              <%= form_for @room, url: room_photos_path(@room), method: 'post', html: {multipart: true} do |f| %>
+                <div class="form-group">
+                  <span>
+                    Select Photos
+                    <%= file_field_tag "images[]",type: :file, multiple: true %>
+                  </span>
+                <div>
+                <%= f.submit "Add Photos", class: "btn btn-primary mt-2" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
         
       </div>
     </div>
