@@ -1,3 +1,4 @@
+# encoding: utf-8
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -65,3 +66,4 @@ gem 'toastr-rails', '~> 1.0'
 
 gem 'omniauth', '~> 1.6'
 gem 'omniauth-facebook', '~> 4.0'
+gem 'paperclip', '~> 5.1.0'
