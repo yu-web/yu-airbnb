@@ -70,5 +70,4 @@ Rails.application.configure do
     password: Rails.application.credentials.mailgun[:password]
   }
 
-  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

@@ -4,9 +4,15 @@ class PhotosController < ApplicationController
 
     if params[:images]
       params[:images].each do |img|
-        @room.photos.force_encoding('UTF-8').create(image: img)
+        @room.photos.create(image: img)
       end
       redirect_back(fallback_location: request.referer, notice: "Saved...")
     end
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_back(fallback_location: request.referer, notice: "Successfully deleted...")
   end
 end
