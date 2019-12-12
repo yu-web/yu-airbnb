@@ -9,7 +9,7 @@
 
   <div class="col-9">
 		<div class="card">
-			<div class="card-header">
+			<div class="card-header bg-success text-light">
 				Location
 			</div>
 		<div class="card-body">
@@ -20,8 +20,8 @@
 							<%= f.text_field :address,placeholder: "What is your address?",class:"form-control",required: true %>
 						</div>
 
-						<div>
-							<%= f.submit "Save",class: "btn btn-primary" %>
+						<div class="text-center">
+							<%= f.submit "Save",class: "btn btn-primary mt-3 w-25" %>
 						</div>
 					<% end %>
 				</div>

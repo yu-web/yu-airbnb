@@ -69,4 +69,5 @@ Rails.application.configure do
     user_name: Rails.application.credentials.mailgun[:user_name],
     password: Rails.application.credentials.mailgun[:password]
   }
+
 end

@@ -17,6 +17,10 @@
  @import "bootstrap";
  @import "toastr";
 
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+ 
+
  .avatar-small{
    width: 28px;
  }
@@ -28,3 +32,19 @@
 .show_name{
   margin-left:30px;
 }
+
+select{
+  width: 200px;
+  height: 35px;
+  }
+
+  .preview {
+    padding: 0;
+    img{
+      width: 100%;
+    }
+  }
+
+  ul{
+    list-style: none;
+  }
