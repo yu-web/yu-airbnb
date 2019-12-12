@@ -46,7 +46,7 @@ class RoomsController < ApplicationController
 
   def update
     if @room.update(room_params)
-      flash[:noticee] = "Saved..."
+      flash[:notice] = "Saved..."
     else
       flash[:alert] = "Something went wrong"
     end
