@@ -22,6 +22,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @photos =@room.photos
   end
 
   def listing
@@ -61,4 +62,5 @@ class RoomsController < ApplicationController
     def room_params
       params.require(:room).permit(:home_type, :room_type, :accommodate, :bedroom, :bathroom, :listing_name, :summary,:address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active)
     end
+    
 end
