@@ -86,10 +86,10 @@
 					<hr/>
 
 				<!-- google -->
-					<div class="row">
+					<div class="row mt-5 ml-2">
 						<div id="map" style="width: 700px; height:400px;">
 						//Retrieves Google Map API information from Google APIs
-						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1jNghyQmB7ybaK0FYYXdmjtBwWyeoFzI"></script>
+						<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps_api_key %>"></script>
 
 						<script>
 							function initialize() {
