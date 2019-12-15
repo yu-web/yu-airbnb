@@ -70,3 +70,6 @@ gem 'carrierwave', '~> 2.0'
 
 
 gem 'font-awesome-sass', '~> 5.4.1'
+
+gem 'geocoder', '~> 1.4'
+gem "fog-aws"
