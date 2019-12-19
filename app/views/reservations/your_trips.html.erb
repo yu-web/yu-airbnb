@@ -25,10 +25,10 @@
 									<% end %>
 								</div>
 								<div class="col-4">
-									<h5><%= link_to trip.room.listing_name,"#",class: "#" %></h5>
+									<h5><%= link_to trip.room.listing_name,room_path(trip.room),class: "#" %></h5>
 									<span>
 									<%= image_tag avatar_url(trip.room.user),class: "rounded-circle avatar-small mr-1" %>
-									<%= link_to trip.room.user.fullname,"#",class: "#" %>
+									<%= link_to trip.room.user.fullname,user_path(trip.room.user),class: "#" %>
 									</span>
 								</div>
 								<div class="col-3">
