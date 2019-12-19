@@ -75,3 +75,5 @@ gem 'geocoder', '~> 1.4'
 gem "fog-aws"
 
 gem 'jquery-ui-rails', '~> 5.0'
+
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
