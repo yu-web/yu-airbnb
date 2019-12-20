@@ -16,7 +16,22 @@
 	</div>
 
 	<div class="col-9">
-		<h2 class="show_name"><%= @user.fullname %></h2>
+		<h2 class="show_name col-2"><%= @user.fullname %></h2>
+		<div class="container ml-3">
+			<h4 class="ml-2">Listings (<%= @rooms.length %>)</h4><br>
+			<div class="row mb-5">
+				<%= render 'rooms/room_list' %>
+			</div>
 
+			<h4>Reviews From Guests (<%= @guest_reviews.count %>)</h4>
+			<div>
+				<%= render "reviews/guest_list" %>
+			</div><br><br>
+
+			<h4>Reviews From Hosts (<%= @host_reviews.count %>)</h4>
+			<div>
+				<%= render "reviews/host_list" %>
+			</div>
+		</div>
 	</div>
 </div>

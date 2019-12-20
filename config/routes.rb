@@ -24,4 +24,8 @@ Rails.application.routes.draw do
 
   get 'your_trips', to:'reservations#your_trips'
   get 'your_reservations', to: 'reservations#your_reservations'
+
+
+  resources :guest_reviews, only: [:create, :destroy]
+  resources :host_reviews, only: [:create, :destroy]
 end

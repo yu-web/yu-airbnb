@@ -85,6 +85,18 @@
 					</div>
 					<hr/>
 
+				<!-- reviews -->
+				
+				<div class="col-12 mt-3">
+					<h3><%= pluralize(@guest_reviews.count, "Review") %></h3>
+					<div class="container">
+						<div><%= render "reviews/guest_list" %></div>
+					</div>
+				</div>
+				
+
+
+
 				<!-- google -->
 					<div class="row mt-5 ml-2">
 						<div id="map" style="width: 700px; height:400px;">
@@ -120,7 +132,7 @@
 					</div>
 
 					<!-- nearby places -->
-					<div>
+					<div class="mt-3">
 						<h3>Near by</h3>
 						<div class="row">
 							<% for room in @room.nearbys(10) %>
