@@ -33,7 +33,7 @@
 									</span>
 								</div>
 								<div class="col-3">
-									<%= link_to "Review Guest","#",class: "btn btn-primary btn-block" %>
+									<%= render partial: "reviews/host_form",locals: {reservation: reservation} %>
 								</div>
 							</div>
 						<% end %>
