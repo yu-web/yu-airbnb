@@ -77,3 +77,6 @@ gem "fog-aws"
 gem 'jquery-ui-rails', '~> 5.0'
 
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+
+gem 'ransack', '~> 2.0'
