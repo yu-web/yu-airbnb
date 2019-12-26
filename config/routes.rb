@@ -28,4 +28,6 @@ Rails.application.routes.draw do
 
   resources :guest_reviews, only: [:create, :destroy]
   resources :host_reviews, only: [:create, :destroy]
+
+  get '/search', to: "pages#search"
 end

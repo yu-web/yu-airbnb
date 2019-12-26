@@ -92,3 +92,38 @@ select{
 .avatar-medium{
   width:48px;
 }
+
+//home page
+.discovery-card{
+  background-size: cover;
+  background-position: center;
+  height: 326px;
+}
+
+.banner{
+  margin-top:50px;
+  margin-bottom:50px;
+}
+
+
+//Search
+#main{
+  height: 100%;
+  overflow: hidden;
+}
+
+#left{
+  padding: 10px 400px 10px 20px;
+  overflow: scroll;
+  height:100%;
+
+}
+
+#right{
+  position: fixd;
+  top:0px;
+  right:0px;
+  width: 450px;
+  height: 100%;
+  
+}
