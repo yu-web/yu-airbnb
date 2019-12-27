@@ -40,13 +40,13 @@
 
 					<div class="row">
 						<div class="col-4">
-							<%= check_box_tag "q[room_typ_eq_any][]","Entire" %>Entire rooms
+							<%= check_box_tag "q[room_type_eq_any][]","Entire" %>Entire rooms
 						</div>
 						<div class="col-4">
-							<%= check_box_tag "q[room_typ_eq_any][]","Private" %>Private rooms
+							<%= check_box_tag "q[room_type_eq_any][]","Private" %>Private rooms
 						</div>
 						<div class="col-4">
-							<%= check_box_tag "q[room_typ_eq_any][]","Shared" %>Shared rooms
+							<%= check_box_tag "q[room_type_eq_any][]","Shared" %>Shared rooms
 						</div>
 					</div>
 					<hr>
@@ -114,7 +114,7 @@
 
 	<div id ="right">
 		<div id="map" style="width: 100%; height: 100%;">
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1jNghyQmB7ybaK0FYYXdmjtBwWyeoFzI"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps_api_key%>"></script>
 		<script>
 			function initialize(){
 
