@@ -22,8 +22,8 @@ class PagesController < ApplicationController
     @rooms = @search.result
     @arrayRooms = @rooms.to_a
 
-    #step4 -for checking date availability
-   if(!params[:start_date].empty? && !params[:end_date].empty?)
+    #step4 -check if start date and end date is empty?
+   if(params[:start_date] && params[:end_date] && !params[:end_date].empty?)
     @start_date = Date.parse(params[:start_date])
     @end_date = Date.parse(params[:end_date])
     @rooms.each do |room|

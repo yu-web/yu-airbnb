@@ -11,7 +11,85 @@
 		<div>
 			<br>
 			<div class="collapse" id ="collapsePanel">
-				More Filters
+				<%= search_form_for @search, url: search_path do |f| %>
+					<div class="row">
+						<div class="col-8">
+							<label>Price range: </label>
+							<div id="slider-range"></div>
+						</div>
+						<div class="col-2">
+							<label>Min price: </label>
+							<%= f.text_field :price_gteq, class: "form-control" %>
+						</div>
+						<div class="col-2">
+							<label>Max price: </label>
+							<%= f.text_field :price_lteq, class: "form-control" %>
+						</div>
+					</div>
+					<hr>
+
+					<div class="row">
+						<div class="col-6">
+							<%= text_field_tag :start_date,params[:start_date],placeholder: "Start date",class:"form-control"  %>
+						</div>
+						<div class="col-6">
+							<%= text_field_tag :end_date,params[:end_date],placeholder: "End date",class:"form-control"  %>
+						</div>
+					</div>
+					<hr>
+
+					<div class="row">
+						<div class="col-4">
+							<%= check_box_tag "q[room_type_eq_any][]","Entire" %>Entire rooms
+						</div>
+						<div class="col-4">
+							<%= check_box_tag "q[room_type_eq_any][]","Private" %>Private rooms
+						</div>
+						<div class="col-4">
+							<%= check_box_tag "q[room_type_eq_any][]","Shared" %>Shared rooms
+						</div>
+					</div>
+					<hr>
+
+					<div class="row">
+						<div class="col-4">
+							<label>Accommodate</label><br>
+							<%= f.select :accommodate_gteq,[["1",1],["2",2],["3",3],["4",4]],id:"accommodate",prompt:"Select...",class: "form-control" %>
+						</div>
+						<div class="col-4">
+							<label>Bedroom</label><br>
+							<%= f.select :bedroom_gteq,[["1",1],["2",2],["3",3],["4",4]],id:"bedroom",prompt:"Select...",class: "form-control" %>
+						</div>
+						<div class="col-4">
+							<label>Bathroom</label><br>
+							<%= f.select :bathroom_gteq,[["1",1],["2",2],["3",3],["4",4]],id:"bathroom",prompt:"Select...",class: "form-control" %>
+						</div>
+					</div>
+					<hr>
+
+					<div class="row">
+						<div class="col-4">
+							<%= check_box_tag "q[is_tv_eq]",true %>TV
+						</div>
+						<div class="col-4">
+							<%= check_box_tag "q[is_kitchen_eq]",true %>Kitcen
+						</div>
+						<div class="col-4">
+							<%= check_box_tag "q[is_internet_eq]",true %>Internet
+						</div>
+						<div class="col-4">
+							<%= check_box_tag "q[is_heating_eq]",true %>Heating
+						</div>
+						<div class="col-4">
+							<%= check_box_tag "q[is_air_eq]",true %>Air Conditioning
+						</div>
+					</div>
+					<hr>
+					<div class="text-center">
+						<%= f.submit "Search",class:"btn btn-primary" %>
+					</div>
+
+				<% end %>
 			</div>
 			<br>
 
@@ -33,7 +111,54 @@
 
 		</div>
 	</div>
+
 	<div id ="right">
+		<div id="map" style="width: 100%; height: 100%;">
+		<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps_api_key%>"></script>
+		<script>
+			function initialize(){
+
+			//default location if there is no location
+			var location = {lat: 44.5403, lng: -78.5563};
+
+			<% if @arrayRooms.length > 0 %>
+			//get the first latitude and logitude of the room of the first room of tte @arrayRooms
+				location = {lat: <%= @arrayRooms[0].latitude %>,lng: <%= @arrayRooms[0].longitude %>}
+			<% end %>
+
+
+			//get the map
+
+			var map = new google.maps.Map(document.getElementById('map'), {
+				center:location,
+				zoom:12
+			});
+
+			//initialize variable
+			var marker,infowindow;
+
+			//looping all rooms and pin the marker
+			<% @arrayRooms.each do |room| %>
+
+				//create the marker
+				marker = new google.maps.Marker({
+					position: {lat: <%= room.latitude %>,lng: <%= room.longitude %>},
+					map: map
+				});
+				//initialize infowindow
+				infowindow = new google.maps.InfoWindow({
+					content: "<div>$" + <%= room.price %> + "</div>"
+				});
+
+				//open infoindow
+				infowindow.open(map,marker);
+			<% end %>
+			}
+
+			google.maps.event.addDomListener(window,'load',initialize);
+		</script>
+
+		</div>
 	</div>
 
 </div>
@@ -47,4 +172,22 @@
 			}
 		open = !open
 	});
+</script>
+
+<script>
+	$(function(){
+		$("#q_price_gteq").val('100');
+		$("#q_price_lteq").val('500');
+		$("#slider-range").slider({
+			range: true,
+			min: 0,
+			max: 1000,
+			values: [100,500],
+			slide: function(event,ui){
+				$("#q_price_gteq").val(ui.values[0]);
+				$("#q_price_lteq").val(ui.values[1]);
+			}
+		});
+		$('.ui-widget-header').css('background','red');
+});
 </script>
