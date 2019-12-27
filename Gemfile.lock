@@ -186,6 +186,7 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
     orm_adapter (0.5.0)
+    pg (1.2.0-x64-mingw32)
     polyamorous (2.3.0)
       activerecord (>= 5.0)
     popper_js (1.14.5)
@@ -314,6 +315,7 @@ DEPENDENCIES
   mysql2 (>= 0.4.4, < 0.6.0)
   omniauth (~> 1.6)
   omniauth-facebook (~> 4.0)
+  pg
   puma (~> 3.11)
   rails (~> 5.2.3)
   ransack (~> 2.0)
